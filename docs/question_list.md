@@ -8,3 +8,9 @@ In 02-sample-construction.R
 - line 200: from `ndis_accessrequests` get NDIS-kids `ndis_start` date
   - 7061 out of 1212536 (0.5%) people have duplicate record
   - now we basically keep each first record of these people
+
+## Week 7/17/2026 - 7/22/2026
+
+In 03-sample-parent-match.R
+- line 45 - 51: discard people have no dom_synth (ID in DOMINO)
+- 
