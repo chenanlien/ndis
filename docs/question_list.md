@@ -13,4 +13,8 @@ In 02-sample-construction.R
 
 In 03-sample-parent-match.R
 - line 45 - 51: discard people have no dom_synth (ID in DOMINO)
-- 
+- no detail under check
+
+In 04-sample-aedc.R
+- Amangku claimed there is a preliminary prediction model but I don't see it. 
+- this code is straight forward no much questions
