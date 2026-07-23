@@ -50,3 +50,19 @@ This example shows that the recorded parent–child relationship dates do not ne
 In 04-sample-aedc.R
 - Amangku claimed there is a preliminary prediction model but I don't see it. 
 - this code is straight forward
+
+## Week 7/23/2026 - 7/31/2026
+- summary stats about child-parent linkage:
+  -  table of parent before_rollout
+  
+| before_rollout | n | percent |
+|---|---:|---:|
+| FALSE | 487771 | 9% |
+| TRUE | 4815961 | 91% |
+| All | 5303732 | 100% |
+
+  - table of parental linkage
+
+| n_children | mean_num_parent | mean_before_rollout | mean_after_rollout | 
+|---:|---:|---:|---:|
+| 3,795,375 | 1.4 | 1.3 | 0.1 |
