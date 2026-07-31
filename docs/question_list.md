@@ -62,7 +62,7 @@ In 07, 08, 09 R scripts
 - After reviewing the code, the difference is only the length of the lookback window
   
 | Year | PBS | MBS | DOMINO |
-|---|---|---:|---:|
+|---|---|---|---|
 | 5 | 3,053,269 | 3,656,456 | 5,611,954 |
 | 7 | 3,132,151 | 3,707,483 | 5,611,954 |
 
