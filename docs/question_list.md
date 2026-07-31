@@ -52,17 +52,20 @@ In 04-sample-aedc.R
 - this code is straight forward
 
 ## Week 7/23/2026 - 7/31/2026
-- summary stats about child-parent linkage:
-  -  table of parent before_rollout
+
+In 07, 08, 09 R scripts
+- They mainly collect and collapse kids' MBS/PBS data and parents' DOMINO data
+- We need to decide how many years of records before rollout should be used in the prediction model
+  - one version uses records from 5 years before rollout
+  - another version uses records from 7 years before rollout
+- After reviewing the code, the difference is only the length of the lookback window
   
-| before_rollout | n | percent |
-|---|---:|---:|
-| FALSE | 487771 | 9% |
-| TRUE | 4815961 | 91% |
-| All | 5303732 | 100% |
+| Year | PBS | MBS | DOMINO |
+|---|---|---:|---:|
+| 5 | 3,053,269 | 3,656,456 | 5,611,954 |
+| 7 | 3,132,151 | 3,707,483 | 5,611,954 |
 
-  - table of parental linkage
-
-| n_children | mean_num_parent | mean_before_rollout | mean_after_rollout | 
-|---:|---:|---:|---:|
-| 3,795,375 | 1.4 | 1.3 | 0.1 |
+In 12, 13 R scripts
+- We need to decide which parent's data should be used in the prediction model
+- baseline (Amangku's version): using main_caregiver and their latest spouse(if exists)
+- the def of main_caregiver: the parent record closest to rollout date
