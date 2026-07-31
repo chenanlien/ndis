@@ -48,7 +48,8 @@ The implied timeline is:
 This example shows that the recorded parent–child relationship dates do not necessarily coincide with the biological or original parental relationship. In particular, A–B begins after the B–C relationship has ended and after the B–D relationship has begun.
 
 In 04-sample-aedc.R
-- Amangku claimed there is a preliminary prediction model but I don't see it. 
+- Amangku claimed there is a preliminary prediction model but I don't see it.
+  - there is no preliminary prediction model (checked with Tobias)
 - this code is straight forward
 
 ## Week 7/23/2026 - 7/31/2026
