@@ -70,3 +70,9 @@ In 12, 13 R scripts
 - We need to decide which parent's data should be used in the prediction model
 - baseline (Amangku's version): using main_caregiver and their latest spouse(if exists)
 - the def of main_caregiver: the parent record closest to rollout date
+
+## Week 8/01/2026 - 8/06/2026
+
+In 07-sample-pbs-collapsed.R
+  - We labelled drugs into 29 categories
+  - You can find the full list from [pbs-classification.md](https://github.com/chenanlien/ndis/blob/main/docs/pbs-classification.md)
