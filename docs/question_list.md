@@ -74,5 +74,9 @@ In 12, 13 R scripts
 ## Week 8/01/2026 - 8/06/2026
 
 In 07-sample-pbs-collapsed.R
-  - We labelled drugs into 29 categories
-  - You can find the full list from [pbs-classification.md](https://github.com/chenanlien/ndis/blob/main/docs/pbs-classification.md)
+- We labelled drugs into 29 categories
+- You can find the full list from [pbs-classification.md](https://github.com/chenanlien/ndis/blob/main/docs/pbs-classification.md)
+- Issue about age_interaction:
+  - We could construct age-specific medical variables before collapsing the records, producing 29 medical categories × 18 ages. 
+  - However, each child is observed only during the seven years before rollout, so the observable age range differs by age at rollout. 
+  - Therefore, a zero in a category-by-age variable may indicate either no medical record at that age or that the child was not observed at that age.
