@@ -84,4 +84,4 @@ In 07-sample-pbs-collapsed.R
 ## Week 8/07/2026 - 8/12/2026
 
 Issue for prediction model:
-1. missing gender
+1. missing gender 199 / 3762049
