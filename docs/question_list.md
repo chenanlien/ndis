@@ -80,3 +80,8 @@ In 07-sample-pbs-collapsed.R
   - We could construct age-specific medical variables before collapsing the records, producing 29 medical categories × 18 ages. 
   - However, each child is observed only during the seven years before rollout, so the observable age range differs by age at rollout. 
   - Therefore, a zero in a category-by-age variable may indicate either no medical record at that age or that the child was not observed at that age.
+
+## Week 8/07/2026 - 8/12/2026
+
+Issue for prediction model:
+1. missing gender
