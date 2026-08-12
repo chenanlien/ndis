@@ -83,7 +83,7 @@ In 07-sample-pbs-collapsed.R
 
 ## Week 8/07/2026 - 8/12/2026
 
-## Kids Prediction Model: Current Status
+### Kids Prediction Model: Current Status
 
 - **Sample size:** ~3.7 million children.
 - Before running the prediction model, I dropped **199 children with missing gender information**.
