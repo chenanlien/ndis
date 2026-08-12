@@ -83,5 +83,23 @@ In 07-sample-pbs-collapsed.R
 
 ## Week 8/07/2026 - 8/12/2026
 
-Issue for prediction model:
-1. missing gender 199 / 3762049
+## Kids Prediction Model: Current Status
+
+- **Sample size:** ~3.7 million children.
+- Before running the prediction model, I dropped **199 children with missing gender information**.
+- I currently include about **8,000 candidate predictors**, most of which come from **MBS and PBS records**.
+- But only 78 predictors have non-zero coefficient.
+- In the adult prediction model, there is an additional screening step based on the prevalence of individual MBS/PBS items before they enter the final model. I have **not implemented this screening yet**, but I plan to follow the same approach.
+- The current dataset is computationally demanding. Even using only **10,000 children for model training**, running the full prediction pipeline takes about **6 hours**. My next priority is therefore to improve computational efficiency.
+### Main Differences from the Adult Prediction Model
+
+| Adult model | Current kids model |
+|---|---|
+| Training sample is first restricted using `dsp_sample` | The kids sample itself is the prediction population |
+| Uses SA2/SA3 location controls | I currently exclude location variables |
+| MBS/PBS items are further screened based on prevalence | I have not yet implemented this screening |
+| Uses a manually constructed variable list (`M18vars`) | I currently include almost all usable predictors after excluding IDs, outcomes, post-NDIS variables, and location variables |
+| Uses adult-specific age, ATO, Domino, MCD, and Census variables | Kids model uses child characteristics, AEDC, parent/spouse Domino, parent income, MBS, and PBS variables |
+| Includes adult-specific interactions | Kids model additionally includes age-specific PBS category variables |
+| Training uses a large share of the adult prediction sample | Because the kids sample is much larger, I currently need to use a smaller training subsample for computational feasibility |
+
