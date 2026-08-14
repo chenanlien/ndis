@@ -103,3 +103,17 @@ In 07-sample-pbs-collapsed.R
 | Includes adult-specific interactions | Kids model additionally includes age-specific PBS category variables |
 | Training uses a large share of the adult prediction sample | Because the kids sample is much larger, I currently need to use a smaller training subsample for computational feasibility |
 
+## Week 8/14/2026 - 8/18/2026
+
+### Prediction Model Comparison
+
+| Metric | Ahn Model | Amangku Model |
+|---|---:|---:|
+| MSE | **0.0466** | 0.0512 |
+| Top 1% capture | 12.51% | **12.61%** |
+| Top 5% capture | **37.73%** | 34.98% |
+| Top 10% capture | **51.61%** | 46.19% |
+| Top 20% capture | **68.41%** | 58.92% |
+| Top 30% capture | **78.62%** | 68.21% |
+
+The updated Ahn model has a lower prediction error and higher target coverage from the top 5% onward. Performance is essentially identical at the top 1%.
