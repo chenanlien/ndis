@@ -105,6 +105,20 @@ In 07-sample-pbs-collapsed.R
 
 ## Week 8/14/2026 - 8/18/2026
 
+### Sample
+
+- Total kids sample: 3.7 million children
+- Outcome: NDIS participation indicator (`ndis_dum`)
+- Overall NDIS prevalence: 6.28%
+- Prediction target: probability of future NDIS participation
+
+### Predictor Selection
+
+- Started with ~8,000 predictors.
+- Applied prevalence filtering based on NDIS sample prevalence.
+- Reduced predictors to ~3,000 variables.
+- Remaining predictors are mainly MBS/PBS utilization measures.
+
 ### Prediction Model Comparison
 
 The first table compares different model specifications. The updated main-caregiver model performs best overall, with lower MSE and higher target coverage across all reported cutoffs.
