@@ -109,6 +109,9 @@ In 07-sample-pbs-collapsed.R
 
 The first table compares different model specifications. The updated main-caregiver model performs best overall, with lower MSE and higher target coverage across all reported cutoffs.
 
+> Capture measures the share of all NDIS participants identified within the highest-risk group selected by the model.
+> Precision measures the share of true NDIS participants among the children selected by the model.
+
 | Metric | Model - Main Caregiver | Model - Non Main Caregiver | Amangku Model |
 |---|---:|---:|---:|
 | MSE              | **0.0454** | 0.0466 | 0.0512 |
