@@ -107,6 +107,8 @@ In 07-sample-pbs-collapsed.R
 
 ### Prediction Model Comparison
 
+The first table compares different model specifications. The updated main-caregiver model performs best overall, with lower MSE and higher target coverage across all reported cutoffs.
+
 | Metric | Model - Main Caregiver | Model - Non Main Caregiver | Amangku Model |
 |---|---:|---:|---:|
 | MSE              | **0.0454** | 0.0466 | 0.0512 |
@@ -116,15 +118,17 @@ In 07-sample-pbs-collapsed.R
 | Top 20% capture  | **69.67%** | 68.41% | 58.92% |
 | Top 30% capture  | **79.55%** | 78.62% | 68.21% |
 
-The updated model using main-caregiver data has a lower prediction error and higher target coverage from the top 1% onward. 
-
 ### Different Training Size
+
+The second table holds the model specification fixed and compares the effect of increasing the training sample from 100k to 200k observations.
 
 | Metric | Size - 100k | Size - 200k |
 |---|---:|---:|
-| MSE              | 0.0458 | 0.0455 |
-| Top 1% capture   | 12.97% | 12.92% |
-| Top 5% capture   | 39.76% | 39.64% |
-| Top 10% capture  | 53.02% | 53.83% |
-| Top 20% capture  | 70.31% | 71.01% |
-| Top 30% capture  | 80.54% | 80.87% |
+| MSE              | 0.0458 | **0.0455** |
+| Top 1% capture   | **12.97%** | 12.92% |
+| Top 5% capture   | **39.76%** | 39.64% |
+| Top 10% capture  | 53.02% | **53.83%** |
+| Top 20% capture  | 70.31% | **71.01%** |
+| Top 30% capture  | 80.54% | **80.87%** |
+
+Predictions from the 100k and 200k models are highly correlated (`r = 0.9865`). Increasing the training sample to 200k slightly improves MSE and capture rates at broader targeting thresholds, but overall predictions are very similar.
