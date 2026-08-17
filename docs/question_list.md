@@ -113,10 +113,15 @@ The first table compares different model specifications. The updated main-caregi
 |---|---:|---:|---:|
 | MSE              | **0.0454** | 0.0466 | 0.0512 |
 | Top 1% capture   | **12.73%** | 12.51% | 12.61% |
+| Top 1% precision | **79.9%** | 78.5% | 79.2% |
 | Top 5% capture   | **39.56%** | 37.73% | 34.98% |
+| Top 5% precision  | **49.7%** | 47.4% | 43.9% |
 | Top 10% capture  | **53.35%** | 51.61% | 46.19% |
+| Top 10% precision | **33.5%** | 32.4% | 29.0% |
 | Top 20% capture  | **69.67%** | 68.41% | 58.92% |
+| Top 20% precision | **21.9%** | 21.5% | 18.5% |
 | Top 30% capture  | **79.55%** | 78.62% | 68.21% |
+| Top 30% precision | **16.6%** | 16.4% | 14.3% |
 
 ### Different Training Size
 
