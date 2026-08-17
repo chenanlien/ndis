@@ -117,3 +117,14 @@ In 07-sample-pbs-collapsed.R
 | Top 30% capture  | **79.55%** | 78.62% | 68.21% |
 
 The updated model using main-caregiver data has a lower prediction error and higher target coverage from the top 1% onward. 
+
+### Different Training Size
+
+| Metric | Size - 100k | Size - 200k |
+|---|---:|---:|
+| MSE              | 0.0458 | 0.0455 |
+| Top 1% capture   | 12.97% | 12.92% |
+| Top 5% capture   | 39.76% | 39.64% |
+| Top 10% capture  | 53.02% | 53.83% |
+| Top 20% capture  | 70.31% | 71.01% |
+| Top 30% capture  | 80.54% | 80.87% |
