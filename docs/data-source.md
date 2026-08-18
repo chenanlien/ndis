@@ -43,5 +43,6 @@ Notes:
 | `com_dom_*` | Combined household DOMINO indicators |
 
 Household-level variables are constructed as:
-**combined indicator = max(parent indicator, spouse indicator)**
+**combined indicator = max(parent indicator, spouse indicator)**.
+
 Therefore, the household indicator equals 1 if either parent or spouse has the corresponding DOMINO characteristic.
