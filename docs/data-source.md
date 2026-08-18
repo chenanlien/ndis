@@ -18,16 +18,16 @@ The following table summarizes the currently identified data sources, available 
 
 | Variable | Description |
 |---|---|
-| `parent_inc_1` | Parent income in rollout year - 2 |
-| `parent_inc_2` | Parent income in rollout year - 3 |
-| `parent_inc_3` | Parent income in rollout year - 4 |
-| `par_sps_inc_1` | Spouse income in rollout year - 2 |
-| `par_sps_inc_2` | Spouse income in rollout year - 3 |
-| `par_sps_inc_3` | Spouse income in rollout year - 4 |
-| `par_total_1` | Parent + spouse income (year 1) |
-| `par_total_2` | Parent + spouse income (year 2) |
-| `par_total_3` | Parent + spouse income (year 3) |
-| `par_avg_inc` | Average household income over the three pre-rollout years |
+| `parent_inc_1` | Parent income measured 2 years before rollout |
+| `parent_inc_2` | Parent income measured 3 years before rollout |
+| `parent_inc_3` | Parent income measured 4 years before rollout |
+| `par_sps_inc_1` | Spouse income measured 2 years before rollout |
+| `par_sps_inc_2` | Spouse income measured 3 years before rollout |
+| `par_sps_inc_3` | Spouse income measured 4 years before rollout |
+| `par_total_1` | Parent + spouse household income 2 years before rollout |
+| `par_total_2` | Parent + spouse household income 3 years before rollout |
+| `par_total_3` | Parent + spouse household income 4 years before rollout |
+| `par_avg_inc` | Average household income across the three pre-rollout years |
 
 Notes:
 - Income is based on total income/loss reported in ATO records (`incm_or_lss_totl_amt`).
