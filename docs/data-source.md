@@ -8,8 +8,8 @@ The following table summarizes the currently identified data sources, available 
 |---|---|---|---|---|
 | PBS | 2007–2020 | 7 years before rollout | Prescription records are extracted and classified into disease/drug categories following the adult sample approach. | Need to confirm aggregation and lookback window |
 | MBS | 2007–2019 | 7 years before rollout | Medical service claims are extracted and grouped based on MBS categories/subgroups following the adult sample approach. | Need to confirm aggregation and lookback window |
-| ATO ITR | FY2006–07 to FY2022–23 | Confirmed: three pre-rollout income measures | Extract `incm_or_lss_totl_amt` from ITR data. Income variables are constructed for the three fiscal years before rollout. | Confirmed |
-| ATO Payment Summary | FY2006–07 to FY2023–24 | Confirmed: used as fallback | Used when ITR income is missing or zero. | Confirmed |
+| ATO ITR | FY2006–07 to FY2022–23 | three pre-rollout income measures | Extract `incm_or_lss_totl_amt` from ITR data. Income variables are constructed for the three fiscal years before rollout. | Confirmed |
+| ATO Payment Summary | FY2006–07 to FY2023–24 | used as fallback | Used when ITR income is missing or zero. | Confirmed |
 | DOMINO | 2006–2021 | 7 years before rollout | Creates parent/spouse DOMINO history indicators. Household-level indicators combine parent and spouse information. | Confirmed |
 
 ---
