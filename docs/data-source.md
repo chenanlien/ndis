@@ -31,7 +31,6 @@ The following table summarizes the currently identified data sources, available 
 
 Notes:
 - Income is based on total income/loss reported in ATO records (`incm_or_lss_totl_amt`).
-- Need to confirm whether this measure only captures employment income or includes other income sources.
 
 ---
 
