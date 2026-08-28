@@ -156,3 +156,8 @@ The second table holds the model specification fixed and compares the effect of 
 Predictions from the 100k and 200k models are highly correlated (`r = 0.9865`). Increasing the training sample to 200k slightly improves MSE and capture rates at broader targeting thresholds, but overall predictions are very similar.
 
 > Note: The 100k model in the training-size comparison is not directly identical to the 100k model reported above. The training-size exercise uses a fixed holdout evaluation sample and draws the training observations from the remaining sample, so both the training set and evaluation set differ from the main model comparison.
+
+## Week 8/24/2026 - 8/28/2026
+- need to decide event-time to multiple kids family
+- constructed parent personal panel data
+- household panel not yet - need to decide aggregate at what level e.g. couple? kid? other? 
