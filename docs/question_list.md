@@ -160,12 +160,12 @@ Predictions from the 100k and 200k models are highly correlated (`r = 0.9865`). 
 ## Week 8/24/2026 - 8/28/2026
 - need to decide event-time to multiple kids family
   - 8/28: use first kid's rollout
-  - 
 - constructed parent personal panel data
 - household panel not yet - need to decide aggregate at what level e.g. couple? kid? other?
   - we will have three level: parent, couple, household(all parents lined to a specific kid)
 
 ## Week 8/31/2026 - 9/01/2026
-- Rollout is assigned at the child level using location history.
-- For children with multiple locations, the earliest observed location is used.
-- Therefore, siblings linked to the same parent may have different rollout dates.
+- Why multiple rollout date?
+  - Rollout is assigned at the child level using location history.
+  - For children with multiple locations, the earliest observed location is used.
+  - Therefore, siblings linked to the same parent may have different rollout dates.
