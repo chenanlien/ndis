@@ -169,3 +169,20 @@ Predictions from the 100k and 200k models are highly correlated (`r = 0.9865`). 
   - Rollout is assigned at the child level using location history.
   - For children with multiple locations, the earliest observed location is used.
   - Therefore, siblings linked to the same parent may have different rollout dates.
+
+## Week 9/01/2026 - 9/03/2026
+- Using the biggest predicted value kid's information
+- Can't run DDD
+| PDF | Figure / comparison | Sample / specification | Estimator |
+|---|---|---|---|
+| **Prediction groups** | 0–20 vs 20–30 vs 30–100 predicted NDIS risk | Age 30–60; separate predicted-risk groups | CS staggered DiD |
+|  | 5–20 vs 20–100 | Alternative predicted-risk split | CS staggered DiD |
+|  | 5–30 vs 30–100 | Alternative predicted-risk split | CS staggered DiD |
+| **By cohort** | Main sample by rollout cohort | `pred_ndis >= 0.20`; effects shown separately by rollout cohort | CS cohort-specific ATT |
+|  | 20–30 risk group by rollout cohort | `0.20 <= pred_ndis < 0.30` | CS cohort-specific ATT |
+|  | 30–100 risk group by rollout cohort | `pred_ndis >= 0.30` | CS cohort-specific ATT |
+| **Design comparison** | Balanced FE specifications | 20–30 as low-risk group vs 30–100 as high-risk group; balanced `[-3,3]`, balanced `[-5,5]`, and no-individual-FE `[-5,5]` specifications | Event-study regression with LGA×year FE |
+|  | 20–30 vs 30–100 risk groups | Separate middle- and high-risk samples | CS staggered DiD |
+|  | LGA×year FE vs CS | 30–100 high-risk CS effect compared with the 30–100 vs 20–30 FE contrast | CS vs LGA×year FE |
+
+All figure rows show the same three outcomes: `ndis_dum`, `ato_earn`, and `ato_earn_5000`.
