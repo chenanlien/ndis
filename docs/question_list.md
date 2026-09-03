@@ -176,7 +176,7 @@ Predictions from the 100k and 200k models are highly correlated (`r = 0.9865`). 
   - DDD currently fails with an **exactly singular matrix** error when solving the internal `OMEGA` matrix.
   - Both high- and low-risk groups are present in each rollout-year × calendar-year cell, so this does **not** appear to be a simple empty-cell issue.
   - The problem is more likely related to **insufficient independent variation / collinearity** within the finer DDD comparison structure.
-  
+      - For example, after splitting the sample by rollout cohort, year, and high/low predicted risk, some groups may look too similar to provide three independent differences, so the estimator cannot separately identify all components of the DDD.
 | PDF | Figure / comparison | Sample / specification | Estimator |
 |---|---|---|---|
 | **Prediction groups** | 0–20 vs 20–30 vs 30–100 predicted NDIS risk | Age 30–60; separate predicted-risk groups | CS staggered DiD |
