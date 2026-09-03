@@ -177,6 +177,11 @@ Predictions from the 100k and 200k models are highly correlated (`r = 0.9865`). 
   - Both high- and low-risk groups are present in each rollout-year × calendar-year cell, so this does **not** appear to be a simple empty-cell issue.
   - The problem is more likely related to **insufficient independent variation / collinearity** within the finer DDD comparison structure.
       - For example, after splitting the sample by rollout cohort, year, and high/low predicted risk, some groups may look too similar to provide three independent differences, so the estimator cannot separately identify all components of the DDD.
+  - Potential fixes / diagnostics:
+      - simplify the DDD comparison by shortening the event window or restricting rollout cohorts;
+      - check whether some controls/interactions become collinear within the restricted sample;
+      - run the model separately by cohort or calendar-year window to identify which cells trigger the singularity;
+      - test alternative high/low predicted-risk cutoffs to improve support across the third-difference groups.
         
 | PDF | Figure / comparison | Sample / specification | Estimator |
 |---|---|---|---|
