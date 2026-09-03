@@ -173,6 +173,9 @@ Predictions from the 100k and 200k models are highly correlated (`r = 0.9865`). 
 ## Week 9/01/2026 - 9/03/2026
 - Using the biggest predicted value kid's information
 - Can't run DDD
+  - DDD currently fails with an **exactly singular matrix** error when solving the internal `OMEGA` matrix.
+  - Both high- and low-risk groups are present in each rollout-year × calendar-year cell, so this does **not** appear to be a simple empty-cell issue.
+  - The problem is more likely related to **insufficient independent variation / collinearity** within the finer DDD comparison structure.
   
 | PDF | Figure / comparison | Sample / specification | Estimator |
 |---|---|---|---|
