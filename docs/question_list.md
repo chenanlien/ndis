@@ -196,3 +196,8 @@ Predictions from the 100k and 200k models are highly correlated (`r = 0.9865`). 
 |  | LGA×year FE vs CS | 30–100 high-risk CS effect compared with the 30–100 vs 20–30 FE contrast | CS vs LGA×year FE |
 
 All figure rows show the same three outcomes: `ndis_dum`, `ato_earn`, and `ato_earn_5000`.
+
+## Week 9/14/2026 - 9/15/2026
+- U-shaped problem still exists.
+- 3 prediction models now: pbs+mbs+dom+aedc+ age_interact/age_interact+location/location
+- Amangku did create dummy var. for ndis in first two year, I'll try this now
