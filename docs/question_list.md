@@ -201,3 +201,5 @@ All figure rows show the same three outcomes: `ndis_dum`, `ato_earn`, and `ato_e
 - U-shaped problem still exists.
 - 3 prediction models now: pbs+mbs+dom+aedc+ age_interact/age_interact+location/location
 - Amangku did create dummy var. for ndis in first two year, I'll try this now
+- Other difference between Ahn's and Amangku's prediction models:
+  - Amangku did not impose any prevalence threshold on the MBS and PBS variables 
