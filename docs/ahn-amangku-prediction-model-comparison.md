@@ -2,15 +2,14 @@
 
 ## Purpose and evidence standard
 
-This note compares the Ahn and Amangku child NDIS prediction pipelines. The comparison is intended to identify which modeling choices could explain differences in prediction rankings and downstream event-study pre-trends. It does not assess which model is preferable.
+This note compares the Ahn and Amangku child NDIS prediction pipelines. The comparison is intended to identify which modeling choices could explain differences in prediction rankings and downstream event-study pre-trends.
 
-The repository currently contains documentation but not the underlying analysis scripts. This note is therefore based on the Ahn and Amangku source-code extracts reviewed during the model-comparison exercise. Each entry is labelled as follows:
+This note is based on the Ahn and Amangku source-code extracts reviewed during the model-comparison exercise. Each entry is labelled as follows:
 
-- **Confirmed**: directly shown by the reviewed code.
+我想要取消status label，不要再講confirmed, verified這些label, too complicated
+- **Confirmed**: directly shown by the reviewed code. 
 - **User-confirmed**: reported to be identical across pipelines, but not re-checked line by line in the comparison materials.
 - **Verify**: the available code is incomplete or relies on an implicit software default.
-
-Comments in the scripts are not treated as authoritative when they conflict with executable code. For example, some MBS/PBS comments refer to five years, while the actual date restriction uses `7 * 365.25`; this document records a seven-year lookback.
 
 ## Executive summary
 
@@ -22,22 +21,19 @@ The models are not the same Lasso applied to slightly different covariates. They
 4. exclusion versus inclusion of LGA indicators; and
 5. continuous/general covariate use versus bucketed income and age dummies.
 
-Differences such as dense versus sparse matrices, batch size, parallel execution, and chunked prediction are primarily implementation choices. They should not be interpreted as substantive specification differences unless numerical or convergence diagnostics show otherwise.
-
 ## 1. Overall prediction variables
 
 | Dimension | Ahn | Amangku | Status and implication |
 |---|---|---|---|
-| Prediction target | `ndis_dum` | The reviewed model sets `y2` to `ndis_2year`; it also constructs `ndis_ever` and `ndis_enter_kid` | **Confirmed; high importance.** The fitted outcomes differ. |
-| Predictor-selection approach | Starts from usable variables and removes an exclusion list | Explicitly combines MBS, PBS, parent DOMINO, income-bucket, rounded-age, and LGA blocks | **Confirmed.** Ahn is broadly exclusion-based; Amangku is block-based. |
+| Prediction target | `ndis_dum` | The reviewed model sets `y2` to `ndis_2year`; it also constructs `ndis_ever` and `ndis_enter_kid` | **Confirmed; high importance.** The fitted outcomes differ. 這個很難講，我們已經試過both ndis_ever and ndis_2year for both two models，這裡至少可以說pred_outcome 有對齊|
 | AEDC | Retained; the reviewed preparation code fills relevant numeric missings and includes an AEDC match indicator | Variables beginning `aedc_` are removed before model fitting | **Confirmed; potentially substantive.** |
 | MBS | Selected item dummies plus subgroup and specialty measures | Raw MBS item variables, converted to ever-used indicators before fitting | **Confirmed; high importance.** See Section 3. |
 | PBS | ATC-based variables, clinical categories, category-by-age measures, observation-age indicators, and selected ATC5 dummies | Raw PBS item variables, converted to ever-used indicators before fitting | **Confirmed; high importance.** See Section 2. |
 | Parent DOMINO | Included | Included via `par_dom_*` | **Confirmed.** Upstream construction was reported identical. |
+Parent/spouse income 與 Child age 這裡再展開說說，讓我確定具體是差在哪？給我例子，讓我理解。此外你怎麼發現amangku是用 income bucket，我以為我也有？
 | Parent/spouse income | Upstream three-year household measures, including `par_avg_inc`, remain available to the exclusion-based predictor set | `par_avg_inc` is converted to 100,000-unit income buckets and then dummy-coded | **Confirmed; potentially substantive.** Verify the exact final Ahn income columns retained. |
 | Child age | `age_rollout` appears to remain as an ordinary predictor | `age_rollout` is rounded and dummy-coded as `age_round_*` | **Ahn: verify exact retained column; Amangku: confirmed.** The functional form differs if Ahn retains the continuous measure. |
 | Location | `lga_code_2011` is explicitly excluded | `lga_code_2011` is dummy-coded and included | **Confirmed; high importance.** |
-| Other baseline variables | May enter unless explicitly excluded | Do not enter unless they match one of the selected blocks | **Confirmed as selection logic.** The realized column lists should be exported for an exact comparison. |
 
 ## 2. PBS variable details
 
@@ -72,13 +68,12 @@ The key difference is therefore not merely the rarity threshold; it is the repre
 |---|---|---|---|
 | Pre-rollout window | Seven years | Seven years | **Confirmed.** |
 | Collapse level | Child × MBS item | Child × MBS item | **Confirmed.** |
-| Upstream item rule | Keeps items observed for at least 50 children (`count >= 50`) | Keeps items observed for more than 100 children (`mbs_item_total > 100`) | **Confirmed.** The strictness cannot be inferred from these thresholds alone because Ahn applies another screen later. |
+| Upstream item rule | Keeps items observed for at least 100 children | Keeps items observed for more than 100 children | **Confirmed.** The strictness cannot be inferred from these thresholds alone because Ahn applies another screen later. |
 | Item measures constructed | Item dummy and item count | Item frequency | **Confirmed.** |
 | Item measure entering final model | Item dummy; `mbs_item_count_*` is removed | `mbs_item_freq*` is converted to an ever-used `0/1` indicator | **Confirmed.** Both ultimately use item-level ever-use indicators, but from differently screened item sets. |
-| Final prevalence screen | Keeps item dummies with prevalence at least `0.0005` among children with `ndis_dum == 1` | No additional final-model prevalence filter was shown | **Confirmed.** |
+| Final prevalence screen | Keeps item dummies with prevalence at least `0.0005` among children with `ndis_ever` | No additional final-model prevalence filter was shown | **Confirmed.** |
 | Subgroup features | `mbs_sub_dummy_*` and `mbs_sub_items_*` | No corresponding block shown | **Confirmed.** |
 | Specialty features | Specialty dummy, visit count, and provider count | No corresponding block shown | **Confirmed.** |
-| Reshape batch size | 50 items | 25 items | **Confirmed; implementation only.** It should not change the resulting features if both pipelines complete correctly. |
 
 Ahn therefore applies a two-stage item-selection process: an upstream child-count threshold followed by a prevalence threshold among NDIS cases. Amangku applies the upstream child-count restriction but no final-stage prevalence screen in the reviewed model script.
 
@@ -86,7 +81,6 @@ Ahn therefore applies a two-stage item-selection process: an upstream child-coun
 
 | Step | Ahn | Amangku | Status and implication |
 |---|---|---|---|
-| Base child sample | `child_selected_population.csv` | `child_selected_population_amangku.csv` | **Confirmed.** Sample differences should be held fixed when isolating model effects. |
 | AEDC | Left-merged, with `aedc_match` constructed; AEDC variables remain available for prediction | Left-merged upstream, but `aedc_` variables are later removed from the model data | **Confirmed.** |
 | MBS merge | Item block plus separate subgroup/specialty block | Item block only | **Confirmed; substantive.** |
 | PBS merge | Ahn ATC/category feature architecture | Amangku raw-item feature architecture | **Confirmed; substantive.** |
@@ -104,9 +98,8 @@ The merge architecture is broadly similar, but the feature blocks merged and the
 
 | Training feature | Ahn | Amangku | Status and implication |
 |---|---|---|---|
-| Target | `ndis_dum` | `ndis_2year` (`y2`) | **Confirmed; high importance.** |
+| Target | `ndis_2year` | `ndis_2year` 一樣的問題，我們試過兩個變數在兩個model | **Confirmed; high importance.** |
 | Training observations | Random sample of 100,000 children | `sample_frac(touse, 1)`: 100% of observations, randomly reordered | **Confirmed; high importance.** `1` means 100%, not 1%. |
-| Randomness | `set.seed(123)` is used for sampling | The reviewed `set.seed(123)` is commented; no fixed `foldid` is supplied | **Confirmed in reviewed code; reproducibility risk.** Repeated fits may use different row order/CV folds. |
 | Estimator | `cv.glmnet`, binomial Lasso | `cv.glmnet`, binomial Lasso | **Confirmed.** Default `alpha = 1` should be recorded explicitly in future production code. |
 | Cross-validation | 10 folds | 10 folds | **Confirmed.** |
 | CV metric | `type.measure = "mse"` | Not specified | **Confirmed as written; verify effective `glmnet` default for the installed version.** |
