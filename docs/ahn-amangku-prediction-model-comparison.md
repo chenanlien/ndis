@@ -66,4 +66,3 @@ See [PBS medication categories](pbs-classification.md) for the category definiti
 ## Items to check
 
 1. How many predictors are used in the Amangku model?
-2. What `type.measure` and prediction lambda are used by Amangku's installed `glmnet` version when they are not specified?
