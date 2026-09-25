@@ -62,7 +62,3 @@ See [PBS medication categories](pbs-classification.md) for the category definiti
 | PBS after merge | Quantities excluded; ATC dummies and categories retained; no raw-item predictors | Quantity columns are deleted, and all nonzero values across the PBS item-frequency columns are converted to one |
 | DOMINO, ITR, and Payment Summary construction | Same | Same |
 | Parent/spouse income missing values | Filled with zero | Filled with zero |
-
-## Items to check
-
-1. How many predictors are used in the Amangku model?
