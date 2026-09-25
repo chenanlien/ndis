@@ -28,7 +28,7 @@ This document summarizes a manual comparison of the Ahn and Amangku prediction-m
 | Item variables initially constructed | ATC5 quantity and dummy | Raw-item frequency and quantity |
 | Quantity used in final model | No; `pbs_atc5_quant_*` is excluded | No; `pbs_item_qty*` is deleted |
 | Item variable used in final model | Selected `pbs_atc5_dummy_*`; no raw-item predictors | `pbs_item_freq*`, with every nonzero frequency converted to a 0/1 ever-use indicator |
-| Upstream item restriction | No comparable raw-item user-count rule identified | Keeps items used by more than 50 children |
+| Upstream item restriction | Keeps items used by more than 50 children | Keeps items used by more than 50 children |
 | Final prevalence restriction | Keeps ATC5 dummies with prevalence at least `0.0005` among children with the selected NDIS outcome | No additional final-stage restriction |
 | Clinical categories | Approximately 29 categories | None |
 | Category × age variables | Ages 0–17 | None |
