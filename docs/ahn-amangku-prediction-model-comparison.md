@@ -63,19 +63,6 @@ See [PBS medication categories](pbs-classification.md) for the category definiti
 | DOMINO, ITR, and Payment Summary construction | Same | Same |
 | Parent/spouse income missing values | Filled with zero | Filled with zero |
 
-## 5. Prediction training
-
-| Component | Ahn | Amangku |
-|---|---|---|
-| Training sample | Random sample of 100,000 children | Full sample; `sample_frac(touse, 1)` only reorders the observations |
-| Estimator | Binomial Lasso using `cv.glmnet` | Binomial Lasso using `cv.glmnet` |
-| Cross-validation | 10 folds | 10 folds |
-| CV metric | `type.measure = "mse"` | Not specified |
-| Lambda grid | 50 values | 100 values |
-| Parallel fitting | No | Yes, using 10 cores |
-| Design matrix | Dense | Sparse |
-| Lambda used for prediction | Explicitly `lambda.min` | Not specified in `predict()` |
-
 ## Items to check
 
 1. How many predictors are used in the Amangku model?
