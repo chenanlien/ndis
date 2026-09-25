@@ -16,7 +16,7 @@ This document summarizes a manual comparison of the Ahn and Amangku prediction-m
 | Parent income | `par_avg_inc` enters linearly; no income buckets | `par_avg_inc` is converted into `income_bucket_*` dummies | Linear income versus income-category dummies. |
 | Child age | `age_at_rollout` enters linearly | Rounded and converted into `age_round_*` dummies | Linear age versus age-category dummies. |
 | Location | `lga_code_2011` is excluded | LGA dummies are included | Only Amangku uses LGA predictors. |
-| Number of predictors | 6,143 | XXX | Fill in the Amangku predictor count. |
+| Number of predictors | 6,143 | 3,429 | Fill in the Amangku predictor count. |
 
 ## 2. PBS variables
 
