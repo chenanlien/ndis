@@ -1,12 +1,13 @@
 # Why the Aggregate DDD Can Trend Downward Even When Subgroup DDDs Do Not
 
 A useful way to think about the aggregate DDD is:
+
 $$
 DDD_{\text{all},e}
 =
 \sum_a w^H_{a,e} DiD^H_{a,e}
 -
-\sum_a w^L_{a,e} DiD^L_{a,e},
+\sum_a w^L_{a,e} DiD^L_{a,e}.
 $$
 
 where:
@@ -21,24 +22,24 @@ The important point is that the aggregate DDD is **not generally a weighted aver
 
 For a given child-age group,
 
-\[
+$$
 DDD_{a,e}
 =
 DiD^H_{a,e}
 -
 DiD^L_{a,e}.
-\]
+$$
 
 A weighted average of subgroup DDDs would instead look like:
 
-\[
+$$
 \sum_a w_{a,e}
 \left(
 DiD^H_{a,e}
 -
 DiD^L_{a,e}
 \right),
-\]
+$$
 
 which implicitly requires the high- and low-risk groups to use the same composition weights.
 
@@ -56,15 +57,15 @@ Assume that within each child-age group, the high-risk and low-risk CSDiD paths 
 
 Therefore, within each child-age group:
 
-\[
+$$
 DDD_{\text{Young}} = 0
-\]
+$$
 
 and
 
-\[
+$$
 DDD_{\text{Old}} = 0.
-\]
+$$
 
 So neither subgroup DDD has any downward trend.
 
@@ -75,63 +76,63 @@ Now suppose the child-age composition differs substantially between the high- an
 
 At event time \(e=1\),
 
-\[
+$$
 DiD^H
 =
 0.2(10)+0.8(-10)
 =
 -6,
-\]
+$$
 
 while
 
-\[
+$$
 DiD^L
 =
 0.8(10)+0.2(-10)
 =
 6.
-\]
+$$
 
 Therefore,
 
-\[
+$$
 DDD_{\text{all}}
 =
 -6-6
 =
 -12.
-\]
+$$
 
 At event time \(e=2\),
 
-\[
+$$
 DiD^H
 =
 0.2(20)+0.8(-20)
 =
 -12,
-\]
+$$
 
 and
 
-\[
+$$
 DiD^L
 =
 0.8(20)+0.2(-20)
 =
 12.
-\]
+$$
 
 Thus,
 
-\[
+$$
 DDD_{\text{all}}
 =
 -12-12
 =
 -24.
-\]
+$$
 
 The result is:
 
@@ -145,9 +146,9 @@ So **every within-age DDD can be flat, while the aggregate DDD displays a strong
 
 ## Decomposition
 
-The aggregate expression can also be rewritten using the low-risk weights as a reference:
+Using the low-risk weights as a reference, the aggregate DDD can be rewritten as:
 
-\[
+$$
 DDD_{\text{all},e}
 =
 \sum_a w^L_{a,e}
@@ -164,17 +165,17 @@ w^H_{a,e}
 w^L_{a,e}
 \right)
 DiD^H_{a,e}.
-\]
+$$
 
 The first term is a weighted average of the within-child-age DDDs:
 
-\[
-\sum_a w^L_{a,e}DDD_{a,e}.
-\]
+$$
+\sum_a w^L_{a,e} DDD_{a,e}.
+$$
 
 The second term is a **composition term**:
 
-\[
+$$
 \sum_a
 \left(
 w^H_{a,e}
@@ -182,26 +183,24 @@ w^H_{a,e}
 w^L_{a,e}
 \right)
 DiD^H_{a,e}.
-\]
+$$
 
 Therefore, even if all within-child-age DDDs are close to zero, the aggregate DDD can still move substantially if:
 
 1. the high- and low-risk groups have different child-age compositions; and
 2. the underlying CSDiD paths differ across child-age groups.
 
-In the empirical application, this is particularly relevant because the child-age composition of high- and low-risk mothers differs substantially within the same parent-age group.
-
 In addition, because this is a staggered-adoption design, the effective weights may vary with event time:
 
-\[
-w^H_{a,e},\qquad w^L_{a,e}.
-\]
+$$
+w^H_{a,e}
+\quad\text{and}\quad
+w^L_{a,e}.
+$$
 
-Different cohorts contribute at different event times, so changes in cohort support can create an additional source of variation in the aggregate path.
+Different cohorts can contribute at different event times, so changes in cohort support can create an additional source of variation in the aggregate path.
 
-## Interpretation
-
-The key distinction is:
+## Key takeaway
 
 > The pooled DDD is a difference between two differently weighted mixtures, not a simple weighted average of the within-child-age DDDs.
 
